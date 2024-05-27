@@ -7,13 +7,11 @@ WORKDIR /app
 # Copy the pom.xml and source code into the container
 COPY pom.xml .
 COPY src ./src
-
-# Build the project
-RUN mvn clean package
+COPY target/TodoListAmberJ-1.0-SNAPSHOT.jar .
 
 
 # Specify the entry point for the container
-ENTRYPOINT ["java", "--enable-preview", "-jar", "target/TodoListAmberJ.jar"]
+ENTRYPOINT ["java", "--enable-preview", "-jar", "TodoListAmberJ-1.0-SNAPSHOT.jar"]
 
 # Expose the port the application runs on
 EXPOSE 8000
