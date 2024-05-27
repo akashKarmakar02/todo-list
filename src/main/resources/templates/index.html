@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+<main class="max-w-7xl mx-auto">
+    <div class="mt-24 flex justify-center">
+        <h1 class="text-4xl">Todo List</h1>
+    </div>
+    <form class="mt-24 flex justify-center" method="post">
+        <input type="text" name="task" placeholder="What is your task......" class="px-4 py-2 rounded-md focus:ring-1 border w-[60%]">
+        <button type="submit" class="ml-4 bg-slate-700 text-white rounded-md px-4 py-2 rounded-md">Add</button>
+    </form>
+    <div class="mt-14 gap-y-4 flex flex-col justify-center items-center">
+        {% for todo in todos %}
+            <div class="px-6 w-[60%] border py-3 rounded-md shadow">{{ todo.task() }}</div>
+        {% endfor %}
+    </div>
+</main>
+</body>
+</html>
